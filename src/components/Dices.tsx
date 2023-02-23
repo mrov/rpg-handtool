@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-import {IDice} from './interfaces/IDice';
+import {IDice} from '../interfaces/IDice';
 
 type incomingParams = {
   setDiceResult: Function;
