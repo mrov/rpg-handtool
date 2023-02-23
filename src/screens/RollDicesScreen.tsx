@@ -6,6 +6,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Dimensions,
 } from 'react-native';
 
 import Dices from '../components/Dices';
@@ -20,19 +21,27 @@ function RollDicesScreen(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const allHeightStyle = () => {
+    return {
+      height: Dimensions.get('window').height,
+    };
+  };
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <View style={[styles.header]}>
-          <Text style={[styles.rollText]}>ROLL THE DICES</Text>
-        </View>
-        <View style={[styles.dicesContainer]}>
-          <Dices setDiceResult={setdiceResult} />
-        </View>
-        <View style={[styles.diceResultContainer]}>
-          <Text style={[styles.diceResultText]}>{diceResult}</Text>
+        <View style={[allHeightStyle(), {flex: 1, flexDirection: 'column'}]}>
+          <View style={[styles.header]}>
+            <Text style={[styles.rollText]}>ROLL THE DICES</Text>
+          </View>
+          <View style={[styles.dicesContainer]}>
+            <Dices setDiceResult={setdiceResult} />
+          </View>
+          <View style={[styles.diceResultContainer]}>
+            <Text style={[styles.diceResultText]}>{diceResult}</Text>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -42,8 +51,8 @@ function RollDicesScreen(): JSX.Element {
 const styles = StyleSheet.create({
   header: {
     flex: 1,
+    maxHeight: 250,
     justifyContent: 'center',
-    height: 250,
   },
   rollText: {
     textAlign: 'center',
@@ -51,15 +60,19 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 30,
   },
-  dicesContainer: {flexDirection: 'row', flex: 4},
+  dicesContainer: {
+    flex: 1,
+    maxHeight: 200,
+    flexDirection: 'row',
+  },
   diceResultContainer: {
     flex: 1,
     justifyContent: 'center',
-    height: 150,
   },
   diceResultText: {
+    flex: 1,
     textAlign: 'center',
-    color: 'red',
+    color: 'tomato',
     fontWeight: 'bold',
     fontSize: 30,
   },
