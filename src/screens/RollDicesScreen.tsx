@@ -32,7 +32,7 @@ function RollDicesScreen(): JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <View style={[allHeightStyle(), {flex: 1, flexDirection: 'column'}]}>
+        <View style={[allHeightStyle(), styles.pageContainer]}>
           <View style={[styles.header]}>
             <Text style={[styles.rollText]}>ROLL THE DICES</Text>
           </View>
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     maxHeight: 250,
     justifyContent: 'center',
   },
+  pageContainer: {flex: 1, flexDirection: 'column'},
   rollText: {
     textAlign: 'center',
     color: 'white',
