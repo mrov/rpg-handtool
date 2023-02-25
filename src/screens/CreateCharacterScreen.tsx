@@ -54,6 +54,7 @@ function CreateCharacterScreen(): JSX.Element {
             onChangeText={text => {
               changeHandler(text, 'age');
             }}
+            keyboardType="number-pad"
             style={styles.textInput}
           />
         </View>
